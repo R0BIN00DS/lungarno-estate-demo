@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagina non trovata — Lungarno Estate</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171310'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23C9A46A' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-ink: #171310;
+  --color-cream: #F7F2E9;
+  --color-gold: #A9834B;
+  --color-gold-soft: #C9A46A;
+  --color-muted: #8A8375;
+  --color-border: #E1D5BC;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --radius-pill: 999px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background: var(--color-cream); color: var(--color-ink); font-family: var(--font-sans);
+  min-height:100vh; display:flex; flex-direction:column; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+header{ padding:26px 40px; display:flex; justify-content:space-between; align-items:center; }
+.brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-serif); font-size:18px; }
+.brand .mark{ width:30px; height:30px; border-radius:8px; background:var(--color-ink); color:var(--color-gold-soft); display:flex; align-items:center; justify-content:center; font-size:14px; }
+.lang-switch{ display:flex; border:1px solid var(--color-ink); border-radius:var(--radius-pill); overflow:hidden; opacity:0.85; }
+.lang-switch button{ background:none; border:none; color:inherit; font-size:11px; font-weight:600; letter-spacing:0.04em; padding:6px 11px; cursor:pointer; font-family:inherit; }
+.lang-switch button.is-active{ background: var(--color-ink); color: var(--color-cream); }
+
+main{ flex:1; display:flex; align-items:center; justify-content:center; text-align:center; padding:60px 24px; }
+.code{ font-family:var(--font-serif); font-size:15vw; line-height:0.9; color:var(--color-border); max-width:520px; }
+@media (min-width:640px){ .code{ font-size:120px; } }
+h1{ font-family:var(--font-serif); font-size:clamp(26px,4vw,36px); margin:8px 0 12px; }
+p{ color:var(--color-muted); margin-bottom:26px; max-width:420px; margin-left:auto; margin-right:auto; }
+.pill-btn{
+  display:inline-flex; align-items:center; gap:8px; background:var(--color-ink); color:var(--color-cream);
+  font-size:14px; font-weight:500; padding:14px 26px; border-radius:var(--radius-pill);
+  transition: transform .25s ease, background-color .25s ease;
+}
+.pill-btn:hover{ background:#000; transform: translateY(-2px); }
+footer{ padding:22px; text-align:center; font-size:12px; color:var(--color-muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="brand"><span class="mark">L</span>LUNGARNO ESTATE</a>
+  <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
+</header>
+
+<main>
+  <div>
+    <div class="code">404</div>
+    <h1 data-i18n="404.title">Pagina non trovata</h1>
+    <p data-i18n="404.body">La pagina che cerchi non esiste o è stata spostata.</p>
+    <a href="index.html" class="pill-btn" data-i18n="404.cta">Torna alla home</a>
+  </div>
+</main>
+
+<footer>© 2026 Lungarno Estate</footer>
+
+<script src="properties-data.js"></script>
+<script>initI18N();</script>
+</body>
+</html>

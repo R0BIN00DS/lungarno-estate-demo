@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Immobili — Lungarno Estate | Agenzia Immobiliare di Lusso a Firenze</title>
+<meta name="description" content="Catalogo immobili di pregio di Lungarno Estate: ville, casali, attici e palazzi storici a Firenze e in Toscana. Filtra per zona, tipologia, budget e camere.">
+<meta name="robots" content="noindex">
+
+<!-- SITO DEMO — vedi index.html per l'elenco completo dei contenuti da sostituire prima della pubblicazione -->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171310'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23C9A46A' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171310'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23C9A46A' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Immobili — Lungarno Estate">
+<meta property="og:description" content="Ville, casali, attici e palazzi storici a Firenze e in Toscana.">
+<meta property="og:image" content="images/hero-ponte-vecchio.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --color-ink: #171310;
+  --color-ink-soft: #241f19;
+  --color-cream: #F7F2E9;
+  --color-cream-deep: #EFE6D3;
+  --color-paper: #FFFFFF;
+  --color-gold: #A9834B;
+  --color-gold-soft: #C9A46A;
+  --color-muted: #8A8375;
+  --color-muted-on-dark: #B7AE9C;
+  --color-border: #E1D5BC;
+  --color-border-dark: #38322A;
+
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --radius-card: 16px;
+  --radius-image: 20px;
+  --radius-pill: 999px;
+  --radius-input: 10px;
+
+  --section-gap: 130px;
+  --max: 1360px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important; animation-iteration-count:1 !important;}
+}
+
+body{
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight:400;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+
+.wrap{max-width:var(--max); margin:0 auto; padding:0 40px;}
+@media (max-width:600px){ .wrap{ padding:0 22px; } }
+
+h1,h2,h3,.serif{ font-family: var(--font-serif); font-weight:500; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline:2px solid var(--color-gold);
+  outline-offset:3px;
+}
+
+section{ scroll-margin-top:96px; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+  color: var(--color-gold);
+}
+.eyebrow::before{ content:''; width:22px; height:1px; background: var(--color-gold); }
+
+/* ---------- Buttons ---------- */
+.pill-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background: var(--color-ink); color: var(--color-cream);
+  font-size:14px; font-weight:500; letter-spacing:0.01em;
+  padding:14px 26px; border-radius: var(--radius-pill); border:none;
+  white-space:nowrap; transition: transform .25s ease, background-color .25s ease;
+  cursor:pointer;
+}
+.pill-btn:hover{ background:#000; transform: translateY(-2px); }
+.pill-btn.ghost-pill{ background:transparent; color:var(--color-ink); border:1px solid var(--color-ink); }
+.pill-btn.ghost-pill:hover{ background: var(--color-ink); color:var(--color-cream); }
+.pill-btn.on-dark{ background: var(--color-gold-soft); color: var(--color-ink); }
+.pill-btn.on-dark:hover{ background:#dcb87c; }
+
+/* ---------- Header ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:20px 0;
+  transition: background-color .35s ease, padding .35s ease, border-color .35s ease;
+  border-bottom: 1px solid transparent;
+}
+header.scrolled{ background: rgba(247,242,233,0.92); backdrop-filter: blur(8px); border-color: var(--color-border); padding:14px 0; }
+header.on-dark{ color: var(--color-cream); }
+header.on-dark.scrolled{ background: rgba(23,19,16,0.85); border-color: var(--color-border-dark); }
+
+.header-row{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-serif); font-size:19px; letter-spacing:0.02em; }
+.brand .mark{ width:32px; height:32px; border-radius:8px; background:var(--color-ink); color:var(--color-gold-soft); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+header.on-dark .brand .mark{ background: var(--color-gold-soft); color: var(--color-ink); }
+
+.nav-links{ display:flex; align-items:center; gap:30px; }
+.nav-links a{ font-size:14px; font-weight:500; }
+.nav-links a:hover{ color: var(--color-gold); }
+.nav-links a.is-current{ color: var(--color-gold); }
+
+.header-actions{ display:flex; align-items:center; gap:18px; }
+.lang-switch{ display:flex; border:1px solid currentColor; border-radius:var(--radius-pill); overflow:hidden; opacity:0.85; }
+.lang-switch button{ background:none; border:none; color:inherit; font-size:11px; font-weight:600; letter-spacing:0.04em; padding:6px 11px; }
+.lang-switch button.is-active{ background: var(--color-ink); color: var(--color-cream); }
+header.on-dark .lang-switch button.is-active{ background: var(--color-cream); color: var(--color-ink); }
+
+.hamburger{ display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px; }
+.hamburger span{ width:22px; height:2px; background:currentColor; display:block; }
+
+@media (max-width:900px){
+  .nav-links{ display:none; }
+  .header-actions .pill-btn{ display:none; }
+  .hamburger{ display:flex; }
+}
+
+.mobile-nav{
+  position:fixed; inset:0 0 0 auto; width:min(320px,86vw); z-index:300;
+  background: var(--color-ink); color: var(--color-cream);
+  padding:28px 26px; transform:translateX(100%); transition: transform .35s ease;
+  display:flex; flex-direction:column; gap:22px;
+}
+.mobile-nav.is-open{ transform:translateX(0); }
+.mobile-nav a{ font-size:17px; font-family:var(--font-serif); }
+.mobile-nav .close-btn{ align-self:flex-end; background:none; border:none; color:var(--color-cream); font-size:26px; line-height:1; }
+.mobile-nav .lang-switch{ align-self:flex-start; }
+.nav-scrim{ position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:290; opacity:0; pointer-events:none; transition:opacity .3s ease; }
+.nav-scrim.is-open{ opacity:1; pointer-events:auto; }
+
+/* ---------- Reveal ---------- */
+.reveal{ opacity:0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+.split-word{ display:inline-block; will-change:transform,opacity; }
+
+/* ============ PAGE BANNER ============ */
+.page-banner{
+  position:relative; padding:180px 0 90px;
+  background: linear-gradient(180deg, rgba(10,8,6,0.55) 0%, rgba(10,8,6,0.35) 60%, rgba(10,8,6,0.75) 100%), url('images/property-villa-design.jpg') center 30%/cover no-repeat;
+  color:#fff;
+}
+.page-banner h1{ font-size: clamp(38px,6vw,68px); line-height:1.02; letter-spacing:-0.01em; margin:14px 0 14px; max-width:14ch; }
+.page-banner p{ font-size:16px; max-width:520px; color:rgba(255,255,255,0.88); }
+.page-banner .eyebrow{ color: var(--color-gold-soft); }
+.page-banner .eyebrow::before{ background: var(--color-gold-soft); }
+
+/* ============ FILTER BAR ============ */
+.filter-bar{
+  position:relative; z-index:20; margin: -40px auto 0; max-width:1200px;
+  background: var(--color-paper); border-radius: var(--radius-card);
+  box-shadow:0 24px 60px -20px rgba(23,19,16,0.35);
+  padding:22px 26px; display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap;
+}
+.filter-field{ display:flex; flex-direction:column; gap:6px; flex:1; min-width:140px; }
+.filter-field label{ font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-muted); }
+.filter-field select{
+  appearance:none; border:1px solid var(--color-border); border-radius:var(--radius-input);
+  padding:12px 36px 12px 14px; font-size:14px; background:var(--color-paper) url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22 fill=%22none%22%3E%3Cpath d=%22M5 7.5l5 5 5-5%22 stroke=%22%238A8375%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E') no-repeat right 12px center;
+  color:var(--color-ink); width:100%;
+}
+.filter-bar .reset-btn{ background:none; border:none; color:var(--color-muted); font-size:13px; text-decoration:underline; padding:13px 4px; flex-shrink:0; }
+.filter-bar .reset-btn:hover{ color:var(--color-ink); }
+
+/* ============ RESULTS ============ */
+.results{ padding: 60px 0 var(--section-gap); }
+.results-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:32px; gap:16px; flex-wrap:wrap; }
+.results-count{ font-size:14px; color:var(--color-muted); }
+
+.property-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+@media (max-width:980px){ .property-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px){ .property-grid{ grid-template-columns:1fr; } }
+
+.property-card{ display:block; border-radius:var(--radius-card); overflow:hidden; background:var(--color-paper); transition:transform .3s ease, box-shadow .3s ease; }
+.property-card:hover{ transform:translateY(-6px); box-shadow:0 22px 44px -18px rgba(23,19,16,0.3); }
+.property-media{ position:relative; aspect-ratio:4/3; overflow:hidden; }
+.property-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.property-card:hover .property-media img{ transform:scale(1.06); }
+.property-price{ position:absolute; left:14px; bottom:14px; background:rgba(23,19,16,0.82); color:#fff; font-size:13px; font-weight:600; padding:7px 14px; border-radius:var(--radius-pill); }
+.property-body{ padding:20px 20px 22px; }
+.property-body .p-zone{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-gold); font-weight:600; }
+.property-body h3{ font-family:var(--font-serif); font-size:20px; margin:8px 0 6px; line-height:1.25; }
+.property-desc{ font-size:13px; color:var(--color-muted); margin-bottom:12px; line-height:1.5; }
+.property-meta{ display:flex; gap:14px; font-size:12.5px; color:var(--color-muted); flex-wrap:wrap; }
+.property-meta span{ display:flex; align-items:center; gap:5px; }
+.property-meta svg{ width:14px; height:14px; }
+
+.empty-state{ text-align:center; padding:80px 20px; display:none; }
+.empty-state.is-visible{ display:block; }
+.empty-state h3{ font-size:24px; margin-bottom:10px; }
+.empty-state p{ color:var(--color-muted); margin-bottom:22px; }
+
+/* ============ CTA BAND ============ */
+.cta-band{ background: var(--color-ink); color:#fff; padding:70px 0; text-align:center; }
+.cta-band h2{ font-size:clamp(26px,4vw,38px); margin-bottom:16px; }
+.cta-band p{ color: var(--color-muted-on-dark); max-width:480px; margin:0 auto 26px; }
+
+/* ============ FOOTER ============ */
+footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:60px 0 28px; }
+.footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; padding-bottom:32px; border-bottom:1px solid var(--color-border-dark); }
+.footer-links{ display:flex; gap:24px; flex-wrap:wrap; }
+.footer-links a{ font-size:13px; color:var(--color-muted-on-dark); }
+.footer-links a:hover{ color:#fff; text-decoration:underline; }
+.footer-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top:24px; font-size:12px; color:#786f5e; }
+.footer-bottom a{ color:#786f5e; text-decoration:underline; text-underline-offset:2px; }
+.footer-bottom a:hover{ color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="nav-scrim" id="navScrim"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeNav" aria-label="Chiudi menu">×</button>
+  <a href="index.html#chi-siamo" data-i18n="nav.about">Chi siamo</a>
+  <a href="immobili.html" data-i18n="nav.properties">Immobili</a>
+  <a href="index.html#servizi" data-i18n="nav.services">Servizi</a>
+  <a href="index.html#team" data-i18n="nav.team">Il team</a>
+  <a href="index.html#contatti" data-i18n="nav.contact">Contatti</a>
+  <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
+</div>
+
+<header id="siteHeader">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand"><span class="mark">L</span>LUNGARNO ESTATE</a>
+    <nav class="nav-links">
+      <a href="immobili.html" class="is-current" data-i18n="nav.properties">Immobili</a>
+      <a href="index.html#chi-siamo" data-i18n="nav.about">Chi siamo</a>
+      <a href="index.html#servizi" data-i18n="nav.services">Servizi</a>
+      <a href="index.html#team" data-i18n="nav.team">Il team</a>
+      <a href="index.html#contatti" data-i18n="nav.contact">Contatti</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
+      <a href="index.html#contatti" class="pill-btn" data-i18n="nav.cta">Richiedi consulenza</a>
+      <button class="hamburger" id="openNav" aria-label="Apri menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== PAGE BANNER ===================== -->
+  <section class="page-banner" data-header-theme="dark">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="catalog.eyebrow">Il nostro portfolio</span>
+      <h1 class="serif split-target" data-i18n="catalog.title">I nostri immobili</h1>
+      <p data-i18n="catalog.subtitle">Sfoglia la selezione di immobili di pregio a Firenze e in Toscana. Filtra per zona, tipologia, budget e numero di camere.</p>
+    </div>
+  </section>
+
+  <!-- ===================== FILTERS ===================== -->
+  <div class="wrap">
+    <div class="filter-bar reveal is-visible">
+      <div class="filter-field">
+        <label for="fZone" data-i18n="search.zone">Zona</label>
+        <select id="fZone"></select>
+      </div>
+      <div class="filter-field">
+        <label for="fType" data-i18n="search.type">Tipologia</label>
+        <select id="fType"></select>
+      </div>
+      <div class="filter-field">
+        <label for="fBudget" data-i18n="search.budget">Budget massimo</label>
+        <select id="fBudget"></select>
+      </div>
+      <div class="filter-field">
+        <label for="fRooms" data-i18n="filter.rooms">Camere minime</label>
+        <select id="fRooms"></select>
+      </div>
+      <button type="button" class="reset-btn" id="resetFilters" data-i18n="filter.reset">Azzera filtri</button>
+    </div>
+  </div>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="results" data-header-theme="light">
+    <div class="wrap">
+      <div class="results-head">
+        <span class="results-count" id="resultsCount"></span>
+      </div>
+      <div class="property-grid" id="catalogGrid"></div>
+      <div class="empty-state" id="emptyState">
+        <h3 data-i18n="catalog.empty.title">Nessun immobile trovato</h3>
+        <p data-i18n="catalog.empty.body">Prova a modificare o azzerare i filtri di ricerca.</p>
+        <button type="button" class="pill-btn ghost-pill" id="emptyReset" data-i18n="filter.reset">Azzera filtri</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="cta-band" data-header-theme="dark">
+    <div class="wrap">
+      <h2 class="serif split-target" data-i18n="contact.title">Richiedi una consulenza riservata</h2>
+      <p data-i18n="contact.body">Compila il form: un nostro consulente ti risponderà entro 24 ore lavorative.</p>
+      <a href="index.html#contatti" class="pill-btn on-dark" data-i18n="nav.cta">Richiedi consulenza</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="brand" style="color:#fff;"><span class="mark">L</span>LUNGARNO ESTATE</a>
+      <div class="footer-links">
+        <a href="immobili.html" data-i18n="nav.properties">Immobili</a>
+        <a href="index.html#chi-siamo" data-i18n="nav.about">Chi siamo</a>
+        <a href="index.html#servizi" data-i18n="nav.services">Servizi</a>
+        <a href="index.html#contatti" data-i18n="nav.contact">Contatti</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lungarno Estate. <span data-i18n="footer.rights">Tutti i diritti riservati.</span> · <a href="privacy.html" data-i18n="footer.privacy">Informativa privacy</a></span>
+      <span data-i18n="footer.demo">Sito dimostrativo — contenuti e immagini a scopo illustrativo.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="properties-data.js"></script>
+<script>
+/* ---------- Mobile nav ---------- */
+const openNav = document.getElementById('openNav');
+const closeNav = document.getElementById('closeNav');
+const mobileNav = document.getElementById('mobileNav');
+const navScrim = document.getElementById('navScrim');
+function toggleNav(open){
+  mobileNav.classList.toggle('is-open', open);
+  navScrim.classList.toggle('is-open', open);
+}
+openNav?.addEventListener('click', ()=> toggleNav(true));
+closeNav?.addEventListener('click', ()=> toggleNav(false));
+navScrim?.addEventListener('click', ()=> toggleNav(false));
+mobileNav?.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> toggleNav(false)));
+
+/* ---------- Header scroll + contrast ---------- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive:true });
+
+const themedSections = document.querySelectorAll('[data-header-theme]');
+const headerThemeIO = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ header.classList.toggle('on-dark', entry.target.dataset.headerTheme === 'dark'); }
+  });
+}, { threshold:0, rootMargin:'-45% 0px -45% 0px' });
+themedSections.forEach(s=> headerThemeIO.observe(s));
+header.classList.add('on-dark'); // page banner is first section on load
+
+/* ---------- Reveal on scroll ---------- */
+const revealIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('is-visible'); revealIO.unobserve(e.target); }
+  });
+}, { threshold:0.15 });
+document.querySelectorAll('.reveal').forEach(el=> revealIO.observe(el));
+
+/* ---------- Split-text heading reveal (GSAP stagger) ---------- */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function splitIntoWords(el){
+  const text = el.textContent;
+  el.textContent = '';
+  text.split(' ').forEach((word, i, arr)=>{
+    const span = document.createElement('span');
+    span.className = 'split-word';
+    span.textContent = word + (i < arr.length-1 ? ' ' : '');
+    el.appendChild(span);
+  });
+  return el.querySelectorAll('.split-word');
+}
+document.querySelectorAll('.split-target').forEach(el=>{
+  const words = splitIntoWords(el);
+  gsap.set(words, { opacity:0, y: reduceMotion ? 0 : 24 });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        gsap.to(words, { opacity:1, y:0, duration: reduceMotion ? 0 : 0.7, stagger: reduceMotion ? 0 : 0.045, ease:'power3.out' });
+        io.unobserve(el);
+      }
+    });
+  }, { threshold:0.4 });
+  io.observe(el);
+});
+
+/* ---------- Filters ---------- */
+const params = new URLSearchParams(window.location.search);
+const state = {
+  zone: params.get('zone') || '',
+  type: params.get('type') || '',
+  budget: params.get('budget') || '',
+  rooms: params.get('rooms') || '',
+};
+
+function populateFilterSelects(lang){
+  const zoneSel = document.getElementById('fZone');
+  const typeSel = document.getElementById('fType');
+  const budgetSel = document.getElementById('fBudget');
+  const roomsSel = document.getElementById('fRooms');
+
+  zoneSel.innerHTML = `<option value="">${I18N[lang]['search.zone.any']}</option>` + ZONES.map(z=>`<option value="${z.key}">${z[lang]}</option>`).join('');
+  typeSel.innerHTML = `<option value="">${I18N[lang]['search.type.any']}</option>` + TYPES.map(t=>`<option value="${t.key}">${t[lang]}</option>`).join('');
+  budgetSel.innerHTML = `<option value="">${I18N[lang]['search.budget.any']}</option>` + BUDGETS.map(b=>`<option value="${b}">${lang==='it'?'fino a':'up to'} ${formatPrice(b, lang)}</option>`).join('');
+  roomsSel.innerHTML = `<option value="">${I18N[lang]['filter.rooms.any']}</option>` + ROOM_MINIMUMS.map(r=>`<option value="${r}">${r}+</option>`).join('');
+
+  zoneSel.value = state.zone; typeSel.value = state.type; budgetSel.value = state.budget; roomsSel.value = state.rooms;
+}
+
+function syncStateFromInputs(){
+  state.zone = document.getElementById('fZone').value;
+  state.type = document.getElementById('fType').value;
+  state.budget = document.getElementById('fBudget').value;
+  state.rooms = document.getElementById('fRooms').value;
+
+  const p = new URLSearchParams();
+  if(state.zone) p.set('zone', state.zone);
+  if(state.type) p.set('type', state.type);
+  if(state.budget) p.set('budget', state.budget);
+  if(state.rooms) p.set('rooms', state.rooms);
+  const qs = p.toString();
+  history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : ''));
+}
+
+function renderCatalog(lang){
+  const grid = document.getElementById('catalogGrid');
+  const emptyState = document.getElementById('emptyState');
+  const countEl = document.getElementById('resultsCount');
+
+  const filtered = PROPERTIES.filter(p=>{
+    if(state.zone && p.zone !== state.zone) return false;
+    if(state.type && p.type !== state.type) return false;
+    if(state.budget && p.price > Number(state.budget)) return false;
+    if(state.rooms && p.rooms < Number(state.rooms)) return false;
+    return true;
+  }).sort((a,b)=> a.price - b.price);
+
+  countEl.textContent = lang === 'it'
+    ? `${filtered.length} immobili trovati`
+    : `${filtered.length} properties found`;
+
+  grid.innerHTML = filtered.map(p=>propertyCardHTML(p, lang)).join('');
+
+  emptyState.classList.toggle('is-visible', filtered.length === 0);
+}
+
+function refresh(){
+  const lang = getLang();
+  syncStateFromInputs();
+  renderCatalog(lang);
+}
+
+['fZone','fType','fBudget','fRooms'].forEach(id=>{
+  document.getElementById(id).addEventListener('change', refresh);
+});
+
+function resetFilters(){
+  state.zone = state.type = state.budget = state.rooms = '';
+  populateFilterSelects(getLang());
+  history.replaceState(null, '', window.location.pathname);
+  renderCatalog(getLang());
+}
+document.getElementById('resetFilters').addEventListener('click', resetFilters);
+document.getElementById('emptyReset').addEventListener('click', resetFilters);
+
+/* ---------- Init ---------- */
+initI18N();
+populateFilterSelects(getLang());
+renderCatalog(getLang());
+document.addEventListener('langchange', (e)=>{
+  populateFilterSelects(e.detail.lang);
+  renderCatalog(e.detail.lang);
+});
+</script>
+</body>
+</html>

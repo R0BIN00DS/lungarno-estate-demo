@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Immobile — Lungarno Estate</title>
+<meta name="description" content="Scheda immobile di pregio Lungarno Estate: descrizione, caratteristiche, galleria fotografica e richiesta informazioni.">
+<meta name="robots" content="noindex">
+
+<!-- SITO DEMO — vedi index.html per l'elenco completo dei contenuti da sostituire prima della pubblicazione -->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171310'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23C9A46A' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171310'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23C9A46A' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --color-ink: #171310;
+  --color-ink-soft: #241f19;
+  --color-cream: #F7F2E9;
+  --color-cream-deep: #EFE6D3;
+  --color-paper: #FFFFFF;
+  --color-gold: #A9834B;
+  --color-gold-soft: #C9A46A;
+  --color-muted: #8A8375;
+  --color-muted-on-dark: #B7AE9C;
+  --color-border: #E1D5BC;
+  --color-border-dark: #38322A;
+
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --radius-card: 16px;
+  --radius-image: 20px;
+  --radius-pill: 999px;
+  --radius-input: 10px;
+
+  --section-gap: 130px;
+  --max: 1360px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth; overflow-x:hidden;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important; animation-iteration-count:1 !important;}
+}
+
+body{
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight:400;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+
+.wrap{max-width:var(--max); margin:0 auto; padding:0 40px;}
+@media (max-width:600px){ .wrap{ padding:0 22px; } }
+
+h1,h2,h3,.serif{ font-family: var(--font-serif); font-weight:500; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline:2px solid var(--color-gold);
+  outline-offset:3px;
+}
+
+section{ scroll-margin-top:96px; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+  color: var(--color-gold);
+}
+.eyebrow::before{ content:''; width:22px; height:1px; background: var(--color-gold); }
+
+.section-head{ max-width:640px; margin-bottom:40px; }
+.section-head h2{ font-size:clamp(28px,4vw,40px); line-height:1.15; letter-spacing:-0.01em; margin-top:14px; }
+
+/* ---------- Buttons ---------- */
+.pill-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background: var(--color-ink); color: var(--color-cream);
+  font-size:14px; font-weight:500; letter-spacing:0.01em;
+  padding:14px 26px; border-radius: var(--radius-pill); border:none;
+  white-space:nowrap; transition: transform .25s ease, background-color .25s ease;
+  cursor:pointer;
+}
+.pill-btn:hover{ background:#000; transform: translateY(-2px); }
+.pill-btn.ghost-pill{ background:transparent; color:var(--color-ink); border:1px solid var(--color-ink); }
+.pill-btn.ghost-pill:hover{ background: var(--color-ink); color:var(--color-cream); }
+
+/* ---------- Header ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:20px 0;
+  transition: background-color .35s ease, padding .35s ease, border-color .35s ease;
+  border-bottom: 1px solid transparent;
+  background: rgba(247,242,233,0.92); backdrop-filter: blur(8px); border-color: var(--color-border);
+}
+.header-row{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-serif); font-size:19px; letter-spacing:0.02em; }
+.brand .mark{ width:32px; height:32px; border-radius:8px; background:var(--color-ink); color:var(--color-gold-soft); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+
+.nav-links{ display:flex; align-items:center; gap:30px; }
+.nav-links a{ font-size:14px; font-weight:500; }
+.nav-links a:hover{ color: var(--color-gold); }
+.nav-links a.is-current{ color: var(--color-gold); }
+
+.header-actions{ display:flex; align-items:center; gap:18px; }
+.lang-switch{ display:flex; border:1px solid currentColor; border-radius:var(--radius-pill); overflow:hidden; opacity:0.85; }
+.lang-switch button{ background:none; border:none; color:inherit; font-size:11px; font-weight:600; letter-spacing:0.04em; padding:6px 11px; }
+.lang-switch button.is-active{ background: var(--color-ink); color: var(--color-cream); }
+
+.hamburger{ display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px; }
+.hamburger span{ width:22px; height:2px; background:currentColor; display:block; }
+
+@media (max-width:900px){
+  .nav-links{ display:none; }
+  .header-actions .pill-btn{ display:none; }
+  .hamburger{ display:flex; }
+}
+
+.mobile-nav{
+  position:fixed; inset:0 0 0 auto; width:min(320px,86vw); z-index:300;
+  background: var(--color-ink); color: var(--color-cream);
+  padding:28px 26px; transform:translateX(100%); transition: transform .35s ease;
+  display:flex; flex-direction:column; gap:22px;
+}
+.mobile-nav.is-open{ transform:translateX(0); }
+.mobile-nav a{ font-size:17px; font-family:var(--font-serif); }
+.mobile-nav .close-btn{ align-self:flex-end; background:none; border:none; color:var(--color-cream); font-size:26px; line-height:1; }
+.mobile-nav .lang-switch{ align-self:flex-start; }
+.nav-scrim{ position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:290; opacity:0; pointer-events:none; transition:opacity .3s ease; }
+.nav-scrim.is-open{ opacity:1; pointer-events:auto; }
+
+/* ---------- Reveal ---------- */
+.reveal{ opacity:0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+
+/* ============ BREADCRUMB ============ */
+.breadcrumb{ padding:118px 0 22px; font-size:13px; color:var(--color-muted); display:flex; gap:8px; flex-wrap:wrap; }
+.breadcrumb a{ color:var(--color-muted); }
+.breadcrumb a:hover{ color:var(--color-ink); text-decoration:underline; }
+.breadcrumb .sep{ color:var(--color-border); }
+.breadcrumb .current{ color:var(--color-ink); }
+
+/* ============ GALLERY ============ */
+.detail-gallery{ display:flex; flex-direction:column; gap:12px; }
+.gallery-main{ border-radius:var(--radius-image); overflow:hidden; aspect-ratio:16/9; background:var(--color-cream-deep); }
+.gallery-main img{ width:100%; height:100%; object-fit:cover; }
+.gallery-thumbs{ display:flex; gap:12px; }
+.gallery-thumbs button{ width:96px; height:72px; border-radius:10px; overflow:hidden; border:2px solid transparent; padding:0; background:none; flex-shrink:0; opacity:0.65; transition:opacity .2s ease, border-color .2s ease; }
+.gallery-thumbs button.is-active{ opacity:1; border-color:var(--color-gold); }
+.gallery-thumbs img{ width:100%; height:100%; object-fit:cover; }
+
+/* ============ DETAIL CONTENT ============ */
+.detail-content{ padding:var(--section-gap) 0; }
+.detail-grid{ display:grid; grid-template-columns:1.6fr 1fr; gap:60px; align-items:start; }
+@media (max-width:900px){ .detail-grid{ grid-template-columns:1fr; } }
+
+.detail-main .p-zone{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-gold); font-weight:600; }
+.detail-main h1{ font-size:clamp(28px,4vw,42px); line-height:1.15; margin:10px 0 18px; }
+.detail-meta{ display:flex; gap:20px; flex-wrap:wrap; padding:18px 0; margin-bottom:22px; border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border); }
+.detail-meta span{ font-size:14px; color:var(--color-ink); display:flex; align-items:center; gap:6px; }
+.detail-meta strong{ font-weight:600; }
+.detail-desc{ font-size:16px; color:#4a463d; line-height:1.7; margin-bottom:36px; }
+.detail-subhead{ font-size:20px; margin-bottom:16px; }
+.detail-features{ display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; }
+@media (max-width:480px){ .detail-features{ grid-template-columns:1fr; } }
+.detail-features li{ display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:#4a463d; }
+.detail-features svg{ flex-shrink:0; width:18px; height:18px; color:var(--color-gold); margin-top:1px; }
+
+.price-card{ background:var(--color-paper); border:1px solid var(--color-border); border-radius:var(--radius-card); padding:28px; position:sticky; top:110px; }
+.price-card .price-label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-muted); margin-bottom:6px; }
+.price-card .price-value{ font-family:var(--font-serif); font-size:32px; color:var(--color-ink); margin-bottom:22px; }
+.price-card .pill-btn{ width:100%; }
+
+/* ============ INQUIRY / RELATED (reuse contact-form field styles) ============ */
+.inquiry, .related{ padding:70px 0; }
+.inquiry{ background:var(--color-cream-deep); }
+
+.field{ display:flex; flex-direction:column; gap:6px; margin-bottom:18px; }
+.field label{ font-size:12px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:var(--color-muted); }
+.field input, .field textarea{
+  font-size:15px; padding:13px 14px; border:1px solid var(--color-border); border-radius:var(--radius-input);
+  background:var(--color-paper); color:var(--color-ink); width:100%;
+}
+.field textarea{ resize:vertical; min-height:110px; }
+.row-2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media (max-width:480px){ .row-2{ grid-template-columns:1fr; } }
+.hp-field{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.inquiry-form{ max-width:640px; }
+.form-status{ font-size:14px; margin-top:14px; min-height:20px; }
+.form-status.success{ color:#2f6b3a; }
+.form-status.error{ color:#a3342b; }
+.form-note{ font-size:12.5px; color:var(--color-muted); margin-top:12px; }
+.form-note a{ text-decoration:underline; }
+
+.property-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+@media (max-width:980px){ .property-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px){ .property-grid{ grid-template-columns:1fr; } }
+
+.property-card{ display:block; border-radius:var(--radius-card); overflow:hidden; background:var(--color-paper); transition:transform .3s ease, box-shadow .3s ease; }
+.property-card:hover{ transform:translateY(-6px); box-shadow:0 22px 44px -18px rgba(23,19,16,0.3); }
+.property-media{ position:relative; aspect-ratio:4/3; overflow:hidden; }
+.property-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.property-card:hover .property-media img{ transform:scale(1.06); }
+.property-price{ position:absolute; left:14px; bottom:14px; background:rgba(23,19,16,0.82); color:#fff; font-size:13px; font-weight:600; padding:7px 14px; border-radius:var(--radius-pill); }
+.property-body{ padding:20px 20px 22px; }
+.property-body .p-zone{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-gold); font-weight:600; }
+.property-body h3{ font-family:var(--font-serif); font-size:20px; margin:8px 0 6px; line-height:1.25; }
+.property-desc{ font-size:13px; color:var(--color-muted); margin-bottom:12px; line-height:1.5; }
+.property-meta{ display:flex; gap:14px; font-size:12.5px; color:var(--color-muted); flex-wrap:wrap; }
+.property-meta span{ display:flex; align-items:center; gap:5px; }
+.property-meta svg{ width:14px; height:14px; }
+
+/* ============ NOT FOUND ============ */
+.not-found-inner{ text-align:center; padding:180px 0 120px; }
+.not-found-inner h1{ font-size:clamp(30px,5vw,44px); margin-bottom:14px; }
+.not-found-inner p{ color:var(--color-muted); margin-bottom:26px; }
+
+/* ============ FOOTER ============ */
+footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:60px 0 28px; }
+.footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; padding-bottom:32px; border-bottom:1px solid var(--color-border-dark); }
+.footer-links{ display:flex; gap:24px; flex-wrap:wrap; }
+.footer-links a{ font-size:13px; color:var(--color-muted-on-dark); }
+.footer-links a:hover{ color:#fff; text-decoration:underline; }
+.footer-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top:24px; font-size:12px; color:#786f5e; }
+.footer-bottom a{ color:#786f5e; text-decoration:underline; text-underline-offset:2px; }
+.footer-bottom a:hover{ color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="nav-scrim" id="navScrim"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeNav" aria-label="Chiudi menu">×</button>
+  <a href="index.html#chi-siamo" data-i18n="nav.about">Chi siamo</a>
+  <a href="immobili.html" data-i18n="nav.properties">Immobili</a>
+  <a href="index.html#servizi" data-i18n="nav.services">Servizi</a>
+  <a href="index.html#team" data-i18n="nav.team">Il team</a>
+  <a href="index.html#contatti" data-i18n="nav.contact">Contatti</a>
+  <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
+</div>
+
+<header id="siteHeader">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand"><span class="mark">L</span>LUNGARNO ESTATE</a>
+    <nav class="nav-links">
+      <a href="immobili.html" class="is-current" data-i18n="nav.properties">Immobili</a>
+      <a href="index.html#chi-siamo" data-i18n="nav.about">Chi siamo</a>
+      <a href="index.html#servizi" data-i18n="nav.services">Servizi</a>
+      <a href="index.html#team" data-i18n="nav.team">Il team</a>
+      <a href="index.html#contatti" data-i18n="nav.contact">Contatti</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
+      <a href="index.html#contatti" class="pill-btn" data-i18n="nav.cta">Richiedi consulenza</a>
+      <button class="hamburger" id="openNav" aria-label="Apri menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div id="detailContent">
+    <div class="wrap">
+      <nav class="breadcrumb" id="breadcrumb"></nav>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="detail-gallery reveal is-visible" id="detailGallery">
+          <div class="gallery-main"><img id="galleryMainImg" src="" alt=""></div>
+          <div class="gallery-thumbs" id="galleryThumbs"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="wrap detail-grid">
+        <div class="detail-main reveal is-visible">
+          <span class="p-zone" id="detailZoneType"></span>
+          <h1 id="detailTitle"></h1>
+          <div class="detail-meta" id="detailMeta"></div>
+          <p class="detail-desc" id="detailDesc"></p>
+          <h2 class="detail-subhead serif" data-i18n="detail.features.title">Caratteristiche</h2>
+          <ul class="detail-features" id="detailFeatures"></ul>
+        </div>
+        <aside class="price-card reveal is-visible">
+          <div class="price-label" data-i18n="detail.price.label">Prezzo</div>
+          <div class="price-value" id="detailPrice"></div>
+          <a href="#inquiry" class="pill-btn" data-i18n="detail.inquiry.cta">Richiedi informazioni</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="inquiry" id="inquiry">
+      <div class="wrap">
+        <div class="section-head reveal is-visible">
+          <span class="eyebrow" data-i18n="contact.eyebrow">Parliamone</span>
+          <h2 class="serif" data-i18n="detail.inquiry.title">Richiedi informazioni su questo immobile</h2>
+        </div>
+        <form class="inquiry-form reveal is-visible" id="inquiryForm">
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+          <div class="row-2">
+            <div class="field">
+              <label for="iqName" data-i18n="contact.name">Nome e cognome</label>
+              <input type="text" id="iqName" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="iqEmail" data-i18n="contact.email">Email</label>
+              <input type="email" id="iqEmail" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="iqPhone" data-i18n="contact.phone">Telefono</label>
+            <input type="tel" id="iqPhone" name="phone" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="iqMessage" data-i18n="contact.message">Messaggio</label>
+            <textarea id="iqMessage" name="message" required></textarea>
+          </div>
+          <button type="submit" class="pill-btn" id="inquirySubmit" data-i18n="contact.submit">Invia richiesta</button>
+          <p class="form-status" id="inquiryStatus" role="status" aria-live="polite"></p>
+          <p class="form-note"><span data-i18n="contact.note">Inviando il form accetti la nostra</span> <a href="privacy.html" data-i18n="contact.note.link">informativa privacy</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="related">
+      <div class="wrap">
+        <div class="section-head reveal is-visible">
+          <span class="eyebrow" data-i18n="featured.eyebrow">Selezione del momento</span>
+          <h2 class="serif" data-i18n="detail.related.title">Altri immobili che potrebbero interessarti</h2>
+        </div>
+        <div class="property-grid" id="relatedGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="notFoundState" style="display:none;">
+    <div class="wrap not-found-inner">
+      <h1 class="serif" data-i18n="detail.notfound.title">Immobile non trovato</h1>
+      <p data-i18n="detail.notfound.body">L'immobile che cerchi potrebbe essere stato rimosso, venduto o l'indirizzo non è corretto.</p>
+      <a href="immobili.html" class="pill-btn" data-i18n="detail.notfound.cta">Torna al catalogo</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="brand" style="color:#fff;"><span class="mark">L</span>LUNGARNO ESTATE</a>
+      <div class="footer-links">
+        <a href="immobili.html" data-i18n="nav.properties">Immobili</a>
+        <a href="index.html#chi-siamo" data-i18n="nav.about">Chi siamo</a>
+        <a href="index.html#servizi" data-i18n="nav.services">Servizi</a>
+        <a href="index.html#contatti" data-i18n="nav.contact">Contatti</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lungarno Estate. <span data-i18n="footer.rights">Tutti i diritti riservati.</span> · <a href="privacy.html" data-i18n="footer.privacy">Informativa privacy</a></span>
+      <span data-i18n="footer.demo">Sito dimostrativo — contenuti e immagini a scopo illustrativo.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="properties-data.js"></script>
+<script>
+/* ---------- Mobile nav ---------- */
+const openNav = document.getElementById('openNav');
+const closeNav = document.getElementById('closeNav');
+const mobileNav = document.getElementById('mobileNav');
+const navScrim = document.getElementById('navScrim');
+function toggleNav(open){
+  mobileNav.classList.toggle('is-open', open);
+  navScrim.classList.toggle('is-open', open);
+}
+openNav?.addEventListener('click', ()=> toggleNav(true));
+closeNav?.addEventListener('click', ()=> toggleNav(false));
+navScrim?.addEventListener('click', ()=> toggleNav(false));
+mobileNav?.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> toggleNav(false)));
+
+/* ---------- Header scroll shadow ---------- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive:true });
+
+/* ---------- Lookup property from ?id= ---------- */
+const propId = new URLSearchParams(window.location.search).get('id');
+const property = PROPERTIES.find(p => p.id === propId);
+
+if(!property){
+  document.getElementById('detailContent').style.display = 'none';
+  document.getElementById('notFoundState').style.display = 'block';
+  initI18N();
+} else {
+
+  function renderGallery(lang){
+    const images = property.images && property.images.length ? property.images : [property.image];
+    const mainImg = document.getElementById('galleryMainImg');
+    const thumbs = document.getElementById('galleryThumbs');
+    mainImg.src = images[0];
+    mainImg.alt = property.title[lang];
+    thumbs.innerHTML = images.length > 1 ? images.map((src, i) => `
+      <button type="button" class="${i===0 ? 'is-active' : ''}" data-src="${src}" aria-label="${lang==='it'?'Foto':'Photo'} ${i+1}">
+        <img src="${src}" alt="" loading="lazy">
+      </button>
+    `).join('') : '';
+    thumbs.querySelectorAll('button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        mainImg.src = btn.dataset.src;
+        thumbs.querySelectorAll('button').forEach(b=>b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      });
+    });
+  }
+
+  function renderBreadcrumb(lang){
+    document.getElementById('breadcrumb').innerHTML = `
+      <a href="immobili.html">${I18N[lang]['nav.properties']}</a>
+      <span class="sep">/</span>
+      <a href="immobili.html?zone=${property.zone}">${zoneLabel(property.zone, lang)}</a>
+      <span class="sep">/</span>
+      <span class="current">${property.title[lang]}</span>
+    `;
+  }
+
+  function renderDetail(lang){
+    renderBreadcrumb(lang);
+    renderGallery(lang);
+
+    document.getElementById('detailZoneType').textContent = `${zoneLabel(property.zone, lang)} · ${typeLabel(property.type, lang)}`;
+    document.getElementById('detailTitle').textContent = property.title[lang];
+    document.getElementById('detailDesc').textContent = property.descLong ? property.descLong[lang] : property.desc[lang];
+    document.getElementById('detailPrice').textContent = formatPrice(property.price, lang);
+    document.title = `${property.title[lang]} — Lungarno Estate`;
+
+    document.getElementById('detailMeta').innerHTML = `
+      <span><strong>${property.rooms}</strong> ${I18N[lang]['card.rooms']}</span>
+      <span><strong>${property.baths}</strong> ${I18N[lang]['card.baths']}</span>
+      <span><strong>${property.sqm}</strong> ${I18N[lang]['card.sqm']}</span>
+    `;
+
+    const features = (property.features && property.features[lang]) || [];
+    document.getElementById('detailFeatures').innerHTML = features.map(f => `
+      <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>${f}</li>
+    `).join('');
+
+    const others = PROPERTIES.filter(p => p.id !== property.id);
+    const sameZone = others.filter(p => p.zone === property.zone);
+    const sameType = others.filter(p => p.type === property.type && p.zone !== property.zone);
+    const rest = others.filter(p => p.zone !== property.zone && p.type !== property.type);
+    const related = [...sameZone, ...sameType, ...rest].slice(0, 3);
+    document.getElementById('relatedGrid').innerHTML = related.map(p => propertyCardHTML(p, lang)).join('');
+  }
+
+  initI18N();
+  renderDetail(getLang());
+  document.addEventListener('langchange', (e)=> renderDetail(e.detail.lang));
+
+  /* ---------- Inquiry form -> Web3Forms ---------- */
+  const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+  const inquiryForm = document.getElementById('inquiryForm');
+  const inquiryStatus = document.getElementById('inquiryStatus');
+  const inquirySubmit = document.getElementById('inquirySubmit');
+
+  inquiryForm.addEventListener('focusin', function prefill(e){
+    const msg = document.getElementById('iqMessage');
+    if(e.target === msg && !msg.value){
+      const lang = getLang();
+      msg.value = I18N[lang]['detail.inquiry.messagePrefix'] + property.title[lang] + '. ';
+    }
+  }, { once:true });
+
+  inquiryForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const lang = getLang();
+    if(inquiryForm.botcheck.checked) return;
+
+    inquirySubmit.disabled = true;
+    inquiryStatus.textContent = I18N[lang]['contact.sending'];
+    inquiryStatus.className = 'form-status';
+
+    const data = new FormData(inquiryForm);
+    data.append('access_key', WEB3FORMS_ACCESS_KEY);
+    data.append('subject', `Richiesta info immobile: ${property.title[lang]}`);
+    data.append('from_name', 'Lungarno Estate — Sito Web');
+
+    try{
+      const res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
+      const result = await res.json();
+      if(result.success){
+        inquiryStatus.textContent = I18N[lang]['contact.success'];
+        inquiryStatus.className = 'form-status success';
+        inquiryForm.reset();
+      } else {
+        throw new Error(result.message || 'error');
+      }
+    }catch(err){
+      inquiryStatus.textContent = I18N[lang]['contact.error'];
+      inquiryStatus.className = 'form-status error';
+    }finally{
+      inquirySubmit.disabled = false;
+    }
+  });
+}
+</script>
+</body>
+</html>
