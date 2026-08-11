@@ -281,7 +281,7 @@ const I18N = {
     'nav.contact': 'Contatti',
     'nav.cta': 'Richiedi consulenza',
 
-    'hero.eyebrow': 'Agenzia Immobiliare di Lusso — Firenze',
+    'hero.eyebrow': 'Agenzia Immobiliare di Lusso · Firenze',
     'hero.title': 'LUNGARNO ESTATE',
     'hero.subtitle': "Ville storiche, attici in centro e casali in Chianti: l'immobiliare di pregio a Firenze, curata nei minimi dettagli.",
     'hero.cta': 'Scopri gli immobili',
@@ -364,10 +364,10 @@ const I18N = {
     'contact.note.link': 'informativa privacy',
     'contact.address': 'Indirizzo',
     'contact.hours': 'Orari',
-    'contact.hours.value': 'Lun–Ven 9:30–13:00 · 15:00–19:00',
+    'contact.hours.value': 'Lun-Ven 9:30-13:00 · 15:00-19:00',
 
     'footer.rights': 'Tutti i diritti riservati.',
-    'footer.demo': 'Sito dimostrativo — contenuti e immagini a scopo illustrativo.',
+    'footer.demo': 'Sito dimostrativo: contenuti e immagini a scopo illustrativo.',
 
     'catalog.eyebrow': 'Il nostro portfolio',
     'catalog.title': 'I nostri immobili',
@@ -401,7 +401,7 @@ const I18N = {
     'nav.contact': 'Contact',
     'nav.cta': 'Request Consultation',
 
-    'hero.eyebrow': 'Luxury Real Estate Agency — Florence',
+    'hero.eyebrow': 'Luxury Real Estate Agency · Florence',
     'hero.title': 'LUNGARNO ESTATE',
     'hero.subtitle': 'Historic villas, city-centre penthouses and Chianti farmhouses: fine Florentine real estate, curated down to the last detail.',
     'hero.cta': 'Discover our properties',
@@ -484,10 +484,10 @@ const I18N = {
     'contact.note.link': 'privacy policy',
     'contact.address': 'Address',
     'contact.hours': 'Hours',
-    'contact.hours.value': 'Mon–Fri 9:30am–1pm · 3pm–7pm',
+    'contact.hours.value': 'Mon-Fri 9:30am-1pm · 3pm-7pm',
 
     'footer.rights': 'All rights reserved.',
-    'footer.demo': 'Demo website — content and images for illustrative purposes only.',
+    'footer.demo': 'Demo website: content and images for illustrative purposes only.',
 
     'catalog.eyebrow': 'Our portfolio',
     'catalog.title': 'Our Properties',

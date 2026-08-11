@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Immobile — Lungarno Estate</title>
+<title>Immobile | Lungarno Estate</title>
 <meta name="description" content="Scheda immobile di pregio Lungarno Estate: descrizione, caratteristiche, galleria fotografica e richiesta informazioni.">
 <meta name="robots" content="noindex">
 
@@ -79,11 +79,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 section{ scroll-margin-top:96px; }
 
 .eyebrow{
-  display:inline-flex; align-items:center; gap:8px;
+  display:inline-flex; align-items:center;
   font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
   color: var(--color-gold);
 }
-.eyebrow::before{ content:''; width:22px; height:1px; background: var(--color-gold); }
 
 .section-head{ max-width:640px; margin-bottom:40px; }
 .section-head h2{ font-size:clamp(28px,4vw,40px); line-height:1.15; letter-spacing:-0.01em; margin-top:14px; }
@@ -374,7 +373,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
     </div>
     <div class="footer-bottom">
       <span>© 2026 Lungarno Estate. <span data-i18n="footer.rights">Tutti i diritti riservati.</span> · <a href="privacy.html" data-i18n="footer.privacy">Informativa privacy</a></span>
-      <span data-i18n="footer.demo">Sito dimostrativo — contenuti e immagini a scopo illustrativo.</span>
+      <span data-i18n="footer.demo">Sito dimostrativo: contenuti e immagini a scopo illustrativo.</span>
     </div>
   </div>
 </footer>
@@ -449,7 +448,7 @@ if(!property){
     document.getElementById('detailTitle').textContent = property.title[lang];
     document.getElementById('detailDesc').textContent = property.descLong ? property.descLong[lang] : property.desc[lang];
     document.getElementById('detailPrice').textContent = formatPrice(property.price, lang);
-    document.title = `${property.title[lang]} — Lungarno Estate`;
+    document.title = `${property.title[lang]} | Lungarno Estate`;
 
     document.getElementById('detailMeta').innerHTML = `
       <span><strong>${property.rooms}</strong> ${I18N[lang]['card.rooms']}</span>
@@ -500,7 +499,7 @@ if(!property){
     const data = new FormData(inquiryForm);
     data.append('access_key', WEB3FORMS_ACCESS_KEY);
     data.append('subject', `Richiesta info immobile: ${property.title[lang]}`);
-    data.append('from_name', 'Lungarno Estate — Sito Web');
+    data.append('from_name', 'Lungarno Estate, Sito Web');
 
     try{
       const res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
