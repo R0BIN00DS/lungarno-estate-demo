@@ -284,7 +284,6 @@ const I18N = {
     'hero.eyebrow': 'Agenzia Immobiliare di Lusso · Firenze',
     'hero.title': 'LUNGARNO ESTATE',
     'hero.subtitle': "Ville storiche, attici in centro e casali in Chianti: l'immobiliare di pregio a Firenze, curata nei minimi dettagli.",
-    'hero.cta': 'Scopri gli immobili',
 
     'search.zone': 'Zona',
     'search.zone.any': 'Tutte le zone',
@@ -404,7 +403,6 @@ const I18N = {
     'hero.eyebrow': 'Luxury Real Estate Agency · Florence',
     'hero.title': 'LUNGARNO ESTATE',
     'hero.subtitle': 'Historic villas, city-centre penthouses and Chianti farmhouses: fine Florentine real estate, curated down to the last detail.',
-    'hero.cta': 'Discover our properties',
 
     'search.zone': 'Area',
     'search.zone.any': 'All areas',

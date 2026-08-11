@@ -58,12 +58,10 @@ Attualmente c'è troppo spazio vuoto sopra il titolo: il form di ricerca cade so
 
 L'oro/beige attuale non stacca: è troppo vicino ai toni chiari e scuri già presenti nel tema, quindi la CTA non ha contrasto sufficiente.
 
-- Definire una nuova variabile `--accent` in `:root` e applicarla a: bottone "Request Consultation", bottone di submit del form, stati `:hover` e `:focus-visible`, link attivi, badge.
-- Opzioni (sceglierne **una**, non mescolarle):
-  - Verde bosco profondo `#1F3A2E` — sobrio, si sposa con il paesaggio toscano
-  - Bordeaux `#6B2233` — più caldo, coerente con l'architettura fiorentina
+- Definire una nuova variabile `--accent` in `:root` con il valore definitivo **Bordeaux `#6B2233`** e applicarla a: bottone "Request Consultation", bottone di submit del form, stati `:hover` e `:focus-visible`, link attivi, badge.
+- Testo bianco (`#FFFFFF`) su tutti gli elementi con sfondo `--accent`.
 - Il vecchio oro `--gold` resta **solo** per dettagli tipografici minori: eyebrow, stelle del rating, etichette categoria.
-- Verificare contrasto WCAG AA (≥ 4.5:1) tra testo del bottone e nuovo sfondo.
+- Verificare contrasto WCAG AA (≥ 4.5:1) tra testo bianco e sfondo `--accent`.
 
 ### 2.4 Logo vero
 

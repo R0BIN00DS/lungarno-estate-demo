@@ -17,8 +17,9 @@
   ================================================================
 -->
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171310'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23C9A46A' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23171310'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23C9A46A' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lungarno Estate: Agenzia Immobiliare di Lusso a Firenze">
@@ -60,6 +61,8 @@
   --color-paper: #FFFFFF;
   --color-gold: #A9834B;
   --color-gold-soft: #C9A46A;
+  --accent: #6B2233;
+  --accent-hover: #551A28;
   --color-muted: #8A8375;
   --color-muted-on-dark: #B7AE9C;
   --color-border: #E1D5BC;
@@ -105,7 +108,7 @@ input,select,textarea{font-family:inherit;}
 h1,h2,h3,.serif{ font-family: var(--font-serif); font-weight:500; }
 
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
-  outline:2px solid var(--color-gold);
+  outline:2px solid var(--accent);
   outline-offset:3px;
 }
 
@@ -129,8 +132,8 @@ section{ scroll-margin-top:96px; }
 .pill-btn:hover{ background:#000; transform: translateY(-2px); }
 .pill-btn.ghost-pill{ background:transparent; color:var(--color-ink); border:1px solid var(--color-ink); }
 .pill-btn.ghost-pill:hover{ background: var(--color-ink); color:var(--color-cream); }
-.pill-btn.on-dark{ background: var(--color-gold-soft); color: var(--color-ink); }
-.pill-btn.on-dark:hover{ background:#dcb87c; }
+.pill-btn.accent{ background: var(--accent); color:#FFFFFF; }
+.pill-btn.accent:hover{ background: var(--accent-hover); }
 
 /* ---------- Header ---------- */
 header{
@@ -145,12 +148,11 @@ header.on-dark.scrolled{ background: rgba(23,19,16,0.85); border-color: var(--co
 
 .header-row{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
 .brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-serif); font-size:19px; letter-spacing:0.02em; }
-.brand .mark{ width:32px; height:32px; border-radius:8px; background:var(--color-ink); color:var(--color-gold-soft); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
-header.on-dark .brand .mark{ background: var(--color-gold-soft); color: var(--color-ink); }
+.brand .mark{ width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 
 .nav-links{ display:flex; align-items:center; gap:30px; }
 .nav-links a{ font-size:14px; font-weight:500; }
-.nav-links a:hover{ color: var(--color-gold); }
+.nav-links a:hover{ color: var(--accent); }
 
 .header-actions{ display:flex; align-items:center; gap:18px; }
 .lang-switch{ display:flex; border:1px solid currentColor; border-radius:var(--radius-pill); overflow:hidden; opacity:0.85; }
@@ -202,10 +204,10 @@ header.on-dark .lang-switch button.is-active{ background: var(--color-cream); co
 
 /* ============ HERO ============ */
 .hero{
-  position:relative; min-height:100vh; display:flex; align-items:flex-end;
+  position:relative; min-height:85vh; display:flex; align-items:flex-end;
   color:#fff; padding-top:140px; padding-bottom:0;
 }
-.hero-inner{ position:relative; width:100%; padding-bottom:64px; text-align:center; }
+.hero-inner{ position:relative; width:100%; padding-bottom:40px; text-align:center; }
 .hero-eyebrow{ color: var(--color-gold-soft); }
 
 .hero-title{
@@ -226,11 +228,10 @@ header.on-dark .lang-switch button.is-active{ background: var(--color-cream); co
 }
 
 .hero-sub{ font-size:17px; max-width:520px; color:rgba(255,255,255,0.88); margin:0 auto 30px; }
-.hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center; }
 
 /* ---- hero search card (overlaps hero/about boundary) ---- */
 .search-card{
-  position:relative; z-index:20; margin: -46px auto 0; max-width:1120px;
+  position:relative; z-index:20; margin: -60px auto 0; max-width:1120px;
   background: var(--color-paper); border-radius: var(--radius-card);
   box-shadow:0 24px 60px -20px rgba(23,19,16,0.35);
   padding:22px 26px; display:flex; gap:18px; align-items:flex-end; flex-wrap:wrap;
@@ -243,6 +244,12 @@ header.on-dark .lang-switch button.is-active{ background: var(--color-cream); co
   color:var(--color-ink);
 }
 .search-card .pill-btn{ padding:13px 28px; }
+@media (max-width:768px){
+  .hero{ min-height:68vh; padding-top:70px; }
+  .hero-inner{ padding-bottom:20px; }
+  .search-card{ margin-top:-40px; padding:12px 16px; gap:10px; }
+  .search-card .pill-btn{ width:100%; }
+}
 
 /* ============ ABOUT (sits on the shared zooming photo — see ZOOM PHOTO ZONE above) ============ */
 .about{ padding: var(--section-gap) 0 110px; color:#fff; }
@@ -397,7 +404,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
 
 <header id="siteHeader">
   <div class="wrap header-row">
-    <a href="index.html" class="brand"><span class="mark">L</span>LUNGARNO ESTATE</a>
+    <a href="index.html" class="brand"><span class="mark"><svg viewBox="0 0 100 100" width="20" height="20" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25,18 L25,82 L50,82"/><path d="M76,18 L50,18 L50,82 L76,82 M50,50 L70,50"/></svg></span>LUNGARNO ESTATE</a>
     <nav class="nav-links">
       <a href="immobili.html" data-i18n="nav.properties">Immobili</a>
       <a href="#chi-siamo" data-i18n="nav.about">Chi siamo</a>
@@ -407,7 +414,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
     </nav>
     <div class="header-actions">
       <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
-      <a href="#contatti" class="pill-btn" data-i18n="nav.cta">Richiedi consulenza</a>
+      <a href="#contatti" class="pill-btn accent" data-i18n="nav.cta">Richiedi consulenza</a>
       <button class="hamburger" id="openNav" aria-label="Apri menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -429,9 +436,6 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
           <span class="eyebrow hero-eyebrow" data-i18n="hero.eyebrow">Agenzia Immobiliare di Lusso · Firenze</span>
           <h1 class="hero-title serif"><span class="mask-line"><span class="mask-inner" data-i18n="hero.title">LUNGARNO ESTATE</span></span></h1>
           <p class="hero-sub" data-i18n="hero.subtitle">Ville storiche, attici in centro e casali in Chianti: l'immobiliare di pregio a Firenze, curata nei minimi dettagli.</p>
-          <div class="hero-ctas">
-            <a href="immobili.html" class="pill-btn on-dark" data-i18n="hero.cta">Scopri gli immobili</a>
-          </div>
         </div>
       </section>
 
@@ -450,7 +454,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
             <label for="heroBudget" data-i18n="search.budget">Budget massimo</label>
             <select id="heroBudget" name="budget"></select>
           </div>
-          <button type="submit" class="pill-btn" data-i18n="search.submit">Cerca immobili</button>
+          <button type="submit" class="pill-btn accent" data-i18n="search.submit">Cerca immobili</button>
         </form>
       </div>
 
@@ -645,7 +649,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
               <label for="message" data-i18n="contact.message">Raccontaci cosa stai cercando</label>
               <textarea id="message" name="message" required></textarea>
             </div>
-            <button type="submit" class="pill-btn" id="contactSubmit" data-i18n="contact.submit">Invia richiesta</button>
+            <button type="submit" class="pill-btn accent" id="contactSubmit" data-i18n="contact.submit">Invia richiesta</button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
             <p class="form-note"><span data-i18n="contact.note">Inviando il form accetti la nostra</span> <a href="privacy.html" data-i18n="contact.note.link">informativa privacy</a>.</p>
           </form>
@@ -681,7 +685,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <a href="index.html" class="brand" style="color:#fff;"><span class="mark">L</span>LUNGARNO ESTATE</a>
+      <a href="index.html" class="brand" style="color:#fff;"><span class="mark"><svg viewBox="0 0 100 100" width="20" height="20" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M25,18 L25,82 L50,82"/><path d="M76,18 L50,18 L50,82 L76,82 M50,50 L70,50"/></svg></span>LUNGARNO ESTATE</a>
       <div class="footer-links">
         <a href="immobili.html" data-i18n="nav.properties">Immobili</a>
         <a href="#chi-siamo" data-i18n="nav.about">Chi siamo</a>
