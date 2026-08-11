@@ -260,9 +260,9 @@ function propertyCardHTML(p, lang) {
         <h3>${p.title[lang]}</h3>
         <p class="property-desc">${p.desc[lang]}</p>
         <div class="property-meta">
-          <span>${p.rooms} ${I18N[lang]['card.rooms']}</span>
-          <span>${p.baths} ${I18N[lang]['card.baths']}</span>
-          <span>${p.sqm} ${I18N[lang]['card.sqm']}</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="6" height="4" rx="1"/><path d="M2 19v-6a2 2 0 0 1 2-2h14a4 4 0 0 1 4 4v4"/><path d="M2 16h20"/><path d="M2 19v2M22 19v2"/></svg>${p.rooms} ${I18N[lang]['card.rooms']}</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12V6.5A2.5 2.5 0 0 1 8 4.7"/><path d="M2 12h20v2a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5v-2Z"/><path d="M4 19v2M20 19v2"/></svg>${p.baths} ${I18N[lang]['card.baths']}</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 15l-3 3m0 0h3m-3 0v-3"/><path d="M15 9l3-3m0 0h-3m3 0v3"/></svg>${p.sqm} ${I18N[lang]['card.sqm']}</span>
         </div>
       </div>
     </a>
