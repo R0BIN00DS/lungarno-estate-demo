@@ -258,6 +258,29 @@ header.on-dark .lang-switch button.is-active{ background: var(--color-cream); co
 .about h2{ font-size:clamp(30px,4.2vw,48px); line-height:1.12; letter-spacing:-0.01em; margin:14px 0 20px; }
 .about-body{ color:rgba(255,255,255,0.88); max-width:520px; margin-bottom:26px; font-size:16px; }
 
+.about-text{ position:relative; z-index:1; }
+.about-text::before{
+  content:''; position:absolute; inset:-24px; z-index:-1; pointer-events:none;
+  background: linear-gradient(90deg, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.5) 45%, rgba(10,8,6,0) 80%);
+}
+.about-intro{ position:relative; z-index:1; }
+@media (max-width:768px){
+  .about-text::before{ content:none; }
+  .about-intro::before{
+    content:''; position:absolute; inset:-24px; z-index:-1; pointer-events:none;
+    background: rgba(10,8,6,0.8);
+  }
+  .about-features{ position:relative; z-index:1; }
+  .about-features::before{
+    content:''; position:absolute; top:0; right:-24px; bottom:-26px; left:-24px; z-index:-1; pointer-events:none;
+    background: linear-gradient(to bottom, rgba(10,8,6,0.8) 0%, rgba(10,8,6,0) 100%);
+  }
+  .about-feature h3, .about-feature p, .reviews-row .reviews-text, .reviews-row strong{
+    text-shadow: 0 1px 4px rgba(0,0,0,0.85);
+  }
+}
+.about-text .eyebrow{ color: var(--color-gold-soft); }
+
 .about-media{
   position:relative; border-radius:var(--radius-image); overflow:hidden; aspect-ratio:4/5;
   padding:10px; background:rgba(255,255,255,0.1); backdrop-filter:blur(6px);
@@ -271,9 +294,9 @@ header.on-dark .lang-switch button.is-active{ background: var(--color-cream); co
 }
 
 .about-features{ display:flex; flex-direction:column; gap:0; margin:26px 0; }
-.about-feature{ display:flex; gap:14px; padding:16px 0; border-top:1px solid rgba(255,255,255,0.22); }
+.about-feature{ display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; padding:16px 0; border-top:1px solid rgba(255,255,255,0.22); }
 .about-feature:last-child{ border-bottom:1px solid rgba(255,255,255,0.22); }
-.about-feature svg{ flex-shrink:0; width:20px; height:20px; color:var(--color-gold-soft); margin-top:2px; }
+.about-feature svg{ flex-shrink:0; width:52px; height:52px; color:var(--color-gold-soft); }
 .about-feature h3{ font-family:var(--font-sans); font-weight:600; font-size:15px; margin-bottom:3px; color:#fff; }
 .about-feature p{ font-size:14px; color:var(--color-muted-on-dark); }
 
@@ -461,18 +484,20 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
       <!-- ===================== ABOUT ===================== -->
       <section class="about" id="chi-siamo" data-header-theme="dark">
         <div class="wrap about-grid">
-      <div>
-        <span class="eyebrow" data-i18n="about.eyebrow">Dal 2005 a Firenze</span>
-        <h2 class="reveal split-target" data-i18n="about.title">Eleganza ed esperienza nel mercato immobiliare fiorentino</h2>
-        <p class="about-body reveal" data-i18n="about.body">Lungarno Estate nasce dalla passione per l'architettura e il patrimonio immobiliare di Firenze. Affianchiamo chi cerca casa e chi vende con la stessa cura: valutazioni oneste, trattative trasparenti e un network di proprietà che raramente arriva sul mercato aperto.</p>
+      <div class="about-text">
+        <div class="about-intro">
+          <span class="eyebrow" data-i18n="about.eyebrow">Dal 2005 a Firenze</span>
+          <h2 class="reveal split-target" data-i18n="about.title">Eleganza ed esperienza nel mercato immobiliare fiorentino</h2>
+          <p class="about-body reveal" data-i18n="about.body">Lungarno Estate nasce dalla passione per l'architettura e il patrimonio immobiliare di Firenze. Affianchiamo chi cerca casa e chi vende con la stessa cura: valutazioni oneste, trattative trasparenti e un network di proprietà che raramente arriva sul mercato aperto.</p>
+        </div>
 
         <div class="about-features reveal">
           <div class="about-feature">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
             <div><h3 data-i18n="about.feature1.title">Consulenza dedicata</h3><p data-i18n="about.feature1.body">Un agente di riferimento segue ogni pratica dalla prima visita al rogito.</p></div>
           </div>
           <div class="about-feature">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V9l8-5 8 5v11H4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V9l8-5 8 5v11H4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.6"/></svg>
             <div><h3 data-i18n="about.feature2.title">Portfolio esclusivo</h3><p data-i18n="about.feature2.body">Dalle ville sulle colline agli attici del centro storico, selezionati uno a uno.</p></div>
           </div>
         </div>
