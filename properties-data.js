@@ -1,7 +1,7 @@
 /* ============================================================
-   Lungarno Estate — dati condivisi immobili + motore i18n IT/EN
+   Lungarno Estate: dati condivisi immobili + motore i18n IT/EN
    Usato sia da index.html (immobili in evidenza) sia da immobili.html
-   (catalogo filtrabile) — unica fonte dati, nessuna duplicazione.
+   (catalogo filtrabile), unica fonte dati, nessuna duplicazione.
    ============================================================ */
 
 const ZONES = [
@@ -296,7 +296,7 @@ function typeLabel(key, lang) {
 }
 
 /* ============================================================
-   Card immobile condivisa — usata da index.html (in evidenza),
+   Card immobile condivisa: usata da index.html (in evidenza),
    immobili.html (catalogo) e immobile.html (correlati), così i
    tre punti non possono divergere nel markup.
    ============================================================ */
