@@ -148,6 +148,17 @@ Nella sezione "Why Lungarno Estate" ogni testimonianza deve avere la foto della 
 
 ---
 
+## FASE 6 — Icone sezione Servizi
+
+Nella sezione "Cosa facciamo" le icone attuali sono piccole, in stile outline sottile, e posizionate sopra il titolo: hanno poco peso visivo rispetto al testo.
+
+- Ingrandire le icone in modo che abbiano peso visivo paragonabile al titolo.
+- Cambiare stile: riempite, oppure racchiuse in un contenitore circolare o quadrato con sfondo tenue.
+- Spostarle a sinistra del titolo, sulla stessa riga, allineate verticalmente al centro.
+- Su mobile mantenere l'allineamento orizzontale se lo spazio lo consente.
+
+---
+
 ## Checklist finale
 
 - [ ] Nessun `index.html#` residuo nel progetto
@@ -161,5 +172,6 @@ Nella sezione "Why Lungarno Estate" ogni testimonianza deve avere la foto della 
 - [ ] Pill prezzo leggibile su tutte le card
 - [ ] Icone metriche presenti e allineate
 - [ ] 5 immobili in Featured, griglia senza buchi
+- [ ] Icone Servizi ingrandite, a sinistra del titolo, sulla stessa riga
 - [ ] Lighthouse: nessuna regressione su Performance e Accessibility
 - [ ] Test su 1440×900, 1024×768, 390×844
