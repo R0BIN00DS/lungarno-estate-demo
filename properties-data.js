@@ -99,31 +99,6 @@ const PROPERTIES = [
     images: ['images/property-villa-design.jpg', 'images/property-cucina-lusso.jpg'],
   },
   {
-    id: 'palazzo-oltrarno',
-    zone: 'oltrarno',
-    type: 'palazzo',
-    price: 1980000,
-    rooms: 4,
-    baths: 3,
-    sqm: 280,
-    image: 'images/property-palazzo-storico.jpg',
-    featured: false,
-    title: { it: "Palazzo d'epoca, Oltrarno", en: 'Historic Palazzo, Oltrarno' },
-    desc: {
-      it: 'Piano nobile in palazzo storico, affreschi originali e soffitti a cassettoni.',
-      en: 'Noble floor within a historic palazzo, original frescoes and coffered ceilings.',
-    },
-    descLong: {
-      it: 'Piano nobile di circa 280 mq all\'interno di un palazzo del Seicento nel cuore dell\'Oltrarno, a pochi passi da Palazzo Pitti. Soffitti affrescati, pavimenti originali in cotto e un salone di rappresentanza con soffitto a cassettoni raccontano la storia del palazzo, oggi restaurato con impianti completamente a norma.',
-      en: 'A noble floor of roughly 280 sqm within a 17th-century palazzo in the heart of Oltrarno, just steps from Palazzo Pitti. Frescoed ceilings, original terracotta floors and a grand reception room with a coffered ceiling tell the story of the building, now fully restored with up-to-code systems.',
-    },
-    features: {
-      it: ['Affreschi e soffitti a cassettoni originali', 'A pochi passi da Palazzo Pitti', 'Impianti completamente rinnovati', 'Salone di rappresentanza'],
-      en: ['Original frescoes and coffered ceilings', 'Steps from Palazzo Pitti', 'Fully renovated systems', 'Grand reception room'],
-    },
-    images: ['images/property-palazzo-storico.jpg', 'images/property-camera-lusso.jpg'],
-  },
-  {
     id: 'attico-centro',
     zone: 'centro',
     type: 'attico',
@@ -257,8 +232,8 @@ const PROPERTIES = [
     rooms: 3,
     baths: 2,
     sqm: 145,
-    image: 'images/property-palazzo-storico.jpg',
-    imageWebp: { src1x: 'images/property-palazzo-storico-800.webp', src2x: 'images/property-palazzo-storico-1600.webp' },
+    image: 'images/hero-ponte-vecchio.jpg',
+    imageWebp: { src1x: 'images/hero-ponte-vecchio-800.webp', src2x: 'images/hero-ponte-vecchio-1600.webp' },
     featured: true,
     title: { it: 'Appartamento, San Niccolò', en: 'Apartment, San Niccolò' },
     desc: {
@@ -273,7 +248,7 @@ const PROPERTIES = [
       it: ["Soffitti affrescati d'epoca", "Vista sull'Arno", 'Palazzo storico ristrutturato', 'Quartiere di San Niccolò'],
       en: ['Period frescoed ceilings', 'Views over the Arno', 'Restored historic building', 'San Niccolò district'],
     },
-    images: ['images/property-palazzo-storico.jpg', 'images/property-camera-lusso.jpg'],
+    images: ['images/hero-ponte-vecchio.jpg', 'images/property-camera-lusso.jpg'],
   },
 ];
 
