@@ -462,7 +462,7 @@ function renderCatalog(lang){
     ? `${filtered.length} immobili trovati`
     : `${filtered.length} properties found`;
 
-  grid.innerHTML = filtered.map(p=>propertyCardHTML(p, lang)).join('');
+  grid.innerHTML = filtered.map((p,i)=>propertyCardHTML(p, lang, i===0)).join('');
 
   emptyState.classList.toggle('is-visible', filtered.length === 0);
 }

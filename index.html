@@ -857,7 +857,7 @@ document.getElementById('heroSearch')?.addEventListener('submit', (e)=>{
 function renderFeatured(lang){
   const grid = document.getElementById('featuredGrid');
   if(!grid) return;
-  grid.innerHTML = PROPERTIES.filter(p=>p.featured).map(p=>propertyCardHTML(p, lang)).join('');
+  grid.innerHTML = PROPERTIES.filter(p=>p.featured).map((p,i)=>propertyCardHTML(p, lang, i===0)).join('');
 }
 
 /* ---------- Init ---------- */

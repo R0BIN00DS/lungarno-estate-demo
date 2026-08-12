@@ -223,6 +223,58 @@ const PROPERTIES = [
     },
     images: ['images/property-camera-lusso.jpg', 'images/property-villa-moderna.jpg'],
   },
+  {
+    id: 'attico-terrazza-duomo',
+    zone: 'centro',
+    type: 'attico',
+    price: 1890000,
+    rooms: 4,
+    baths: 3,
+    sqm: 210,
+    image: 'images/firenze-duomo.jpg',
+    imageWebp: { src1x: 'images/firenze-duomo-800.webp', src2x: 'images/firenze-duomo-1600.webp' },
+    featured: true,
+    title: { it: 'Attico con Terrazza, Centro Storico', en: 'Penthouse with Terrace, Historic Centre' },
+    desc: {
+      it: 'Terrazza panoramica sui tetti del centro, a pochi passi dal Duomo.',
+      en: 'Panoramic rooftop terrace in the historic centre, steps from the Duomo.',
+    },
+    descLong: {
+      it: 'Ai piani alti di un edificio d\'epoca nel cuore di Firenze, questo attico si affaccia con una terrazza panoramica sui tetti del centro storico, a pochi passi dal Duomo. Gli ampi spazi interni, distribuiti su quattro camere, si aprono sulla città con una vista che spazia fino alla Cupola del Brunelleschi.',
+      en: "On the upper floors of a period building in the heart of Florence, this penthouse opens onto a panoramic terrace over the rooftops of the historic centre, steps from the Duomo. The generous interiors, arranged across four bedrooms, look out over the city with views reaching Brunelleschi's Dome.",
+    },
+    features: {
+      it: ['Ampia terrazza panoramica sui tetti', 'Vista sulla Cupola del Brunelleschi', 'A pochi passi dal Duomo', 'Quattro camere luminose'],
+      en: ["Large panoramic rooftop terrace", "Views of Brunelleschi's Dome", 'Steps from the Duomo', 'Four bright bedrooms'],
+    },
+    images: ['images/firenze-duomo.jpg', 'images/property-camera-lusso.jpg'],
+  },
+  {
+    id: 'appartamento-san-niccolo',
+    zone: 'oltrarno',
+    type: 'appartamento',
+    price: 980000,
+    rooms: 3,
+    baths: 2,
+    sqm: 145,
+    image: 'images/property-palazzo-storico.jpg',
+    imageWebp: { src1x: 'images/property-palazzo-storico-800.webp', src2x: 'images/property-palazzo-storico-1600.webp' },
+    featured: true,
+    title: { it: 'Appartamento, San Niccolò', en: 'Apartment, San Niccolò' },
+    desc: {
+      it: "Palazzo storico ristrutturato, soffitti affrescati e vista sull'Arno.",
+      en: 'Restored historic building, frescoed ceilings and views over the Arno.',
+    },
+    descLong: {
+      it: "In un palazzo storico ristrutturato nel quartiere di San Niccolò, sulla riva sinistra dell'Arno, questo appartamento conserva soffitti affrescati d'epoca abbinati a finiture contemporanee. Le finestre dei tre ambienti principali si affacciano sul fiume, in una delle zone più autentiche del centro fiorentino.",
+      en: "In a restored historic building in the San Niccolò district, on the left bank of the Arno, this apartment retains period frescoed ceilings paired with contemporary finishes. The windows of the three main rooms look out over the river, in one of the most authentic corners of central Florence.",
+    },
+    features: {
+      it: ["Soffitti affrescati d'epoca", "Vista sull'Arno", 'Palazzo storico ristrutturato', 'Quartiere di San Niccolò'],
+      en: ['Period frescoed ceilings', 'Views over the Arno', 'Restored historic building', 'San Niccolò district'],
+    },
+    images: ['images/property-palazzo-storico.jpg', 'images/property-camera-lusso.jpg'],
+  },
 ];
 
 const BUDGETS = [1000000, 1500000, 2000000, 3000000, 5000000];
@@ -248,11 +300,16 @@ function typeLabel(key, lang) {
    immobili.html (catalogo) e immobile.html (correlati), così i
    tre punti non possono divergere nel markup.
    ============================================================ */
-function propertyCardHTML(p, lang) {
+function propertyCardHTML(p, lang, isFirst) {
+  const loadingAttr = isFirst ? '' : ' loading="lazy"';
+  const imgTag = `<img src="${p.image}" alt="${p.title[lang]}"${loadingAttr}>`;
+  const mediaTag = p.imageWebp
+    ? `<picture><source type="image/webp" srcset="${p.imageWebp.src1x} 1x, ${p.imageWebp.src2x} 2x">${imgTag}</picture>`
+    : imgTag;
   return `
     <a class="property-card reveal is-visible" href="immobile.html?id=${p.id}">
       <div class="property-media">
-        <img src="${p.image}" alt="${p.title[lang]}" loading="lazy">
+        ${mediaTag}
         <span class="property-price">${formatPrice(p.price, lang)}</span>
       </div>
       <div class="property-body">
