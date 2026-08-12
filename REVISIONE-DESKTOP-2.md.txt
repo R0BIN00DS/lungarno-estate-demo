@@ -1,0 +1,99 @@
+# Piano di revisione desktop — Lungarno Estate
+
+Modifiche derivate dalla **seconda review** dell'esperto esterno.
+Eseguire **una fase alla volta**, in ordine. Al termine di ogni fase: fermarsi, elencare i file toccati, attendere conferma.
+
+## Regole generali
+
+- **Tutte le modifiche riguardano il desktop** (sopra 768px), salvo dove diversamente indicato. Il layout mobile è già stato revisionato separatamente: non va toccato.
+- Nessuna migrazione di framework: il sito resta HTML/CSS/JS statico.
+- Non rifattorizzare la struttura, non rinominare file, non riorganizzare cartelle.
+- Colori e spaziature passano dalle CSS custom properties già presenti; se non esistono, crearle in `:root`.
+- Ogni modifica testuale va applicata **sia in IT sia in EN**.
+- Nessuna dipendenza esterna. Icone come SVG inline.
+- Verifica di riferimento: **1440x900**. Ricontrollare sempre che mobile (390x844) non abbia subito regressioni.
+
+---
+
+## FASE 1 — Hero desktop
+
+L'esperto aveva già segnalato questo punto nella prima review. La correzione era stata applicata **solo su mobile**, quindi su desktop il problema è rimasto invariato.
+
+### 1.1 Alzare il blocco di contenuto
+
+Sopra l'eyebrow c'è circa mezzo schermo di cielo vuoto: il form di ricerca cade sotto la piega e l'utente deve scorrere per raggiungerlo.
+
+- Ridurre il `padding-top` / `min-height` della hero finché **il form completo, bottone incluso, è visibile above the fold a 1440x900**.
+- Non comprimere l'immagine di sfondo al punto da renderla innaturale.
+- Verificare anche a 1280x800 e 1920x1080.
+
+### 1.2 Aumentare le spaziature interne
+
+Alzato il blocco, gli elementi risultano troppo compatti tra loro: eyebrow, titolo, sottotitolo e form sono quasi attaccati.
+
+- Aumentare lo spazio verticale **tra** eyebrow, titolo, sottotitolo e card del form.
+- L'obiettivo è respiro tra gli elementi, non altezza complessiva: il blocco deve restare above the fold.
+- Non modificare la dimensione del titolo.
+
+---
+
+## FASE 2 — Sezione "Dal 2005 a Firenze"
+
+Il gradiente dietro il testo è stato giudicato sgradevole. Va sostituito con un overlay scuro uniforme.
+
+- Rimuovere il gradiente attuale dalla versione desktop: cancellare le regole, non sovrascriverle.
+- Sostituire con un **overlay uniforme a colore singolo** sopra la foto: nessun gradiente, nessun punto di stop, nessuna direzione.
+- Opacità di partenza indicativa: 80–88%, da regolare finché la foto resta percepibile ma il testo è pienamente leggibile.
+- Verificare contrasto WCAG AA (≥ 4.5:1) su titolo, paragrafo, eyebrow e testo delle due caratteristiche.
+- I divisori desktop restano invariati.
+
+**Nota:** su mobile la stessa sezione è già stata sistemata separatamente. Verificare a fine fase che non abbia subito regressioni.
+
+---
+
+## FASE 3 — Navbar della pagina listing
+
+Nella pagina elenco immobili la navbar è illeggibile: testo chiaro su header trasparente sopra un'immagine chiara.
+
+- Applicare alla navbar di questa pagina lo stesso trattamento delle altre: fondo opaco o overlay sufficiente a garantire il contrasto.
+- Verificare che tutte le voci di menu, il toggle lingua e il bottone CTA siano leggibili in ogni stato di scroll.
+- Controllare che il problema non si presenti anche su altre pagine con hero chiara (scheda immobile, 404).
+
+---
+
+## FASE 4 — Layout della pagina scheda immobile
+
+L'esperto chiede un layout a due colonne, più vicino allo standard dei portali immobiliari. Struttura richiesta:
+
+**Colonna sinistra** — informazioni
+- Eyebrow zona · tipologia
+- Titolo dell'immobile
+- Metriche (camere, bagni, mq) con le icone già in uso
+- Descrizione estesa
+- Blocco prezzo e bottone "Richiedi informazioni"
+
+**Colonna destra** — galleria immagini
+- Immagine principale
+- Miniature cliccabili sotto, che sostituiscono l'immagine principale al clic
+
+### Requisiti
+
+- Le due colonne restano affiancate su desktop; l'utente deve poter vedere prezzo e caratteristiche **mentre** scorre le foto.
+- Il blocco prezzo + CTA deve restare visibile senza scorrere, a pagina appena aperta.
+- Su mobile il layout collassa in colonna singola: galleria in alto, informazioni sotto.
+- Riutilizzare i componenti e gli stili esistenti (card, bottoni, tipografia): non introdurre uno stile nuovo per questa pagina.
+- La modifica va applicata al template della scheda, così da valere per tutti gli immobili.
+
+---
+
+## Checklist finale
+
+- [ ] Hero desktop: form completo visibile above the fold a 1440x900
+- [ ] Hero desktop: spaziature tra eyebrow, titolo, sottotitolo e form aumentate
+- [ ] Sezione Dal 2005: gradiente sostituito da overlay uniforme, contrasto AA verificato
+- [ ] Navbar leggibile su pagina listing in ogni stato di scroll
+- [ ] Scheda immobile: layout a due colonne, prezzo e CTA visibili senza scorrere
+- [ ] Scheda immobile: galleria con miniature funzionanti
+- [ ] Scheda immobile: layout mobile in colonna singola
+- [ ] Nessuna regressione su mobile in nessuna delle fasi
+- [ ] Test su 1440x900, 1280x800, 390x844, IT ed EN

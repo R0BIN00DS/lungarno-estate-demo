@@ -111,8 +111,12 @@ header{
   border-bottom: 1px solid transparent;
   background: rgba(247,242,233,0.92); backdrop-filter: blur(8px); border-color: var(--color-border);
 }
+@media (max-width:768px){
+  header{ background: var(--color-cream); backdrop-filter:none; }
+}
 .header-row{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
 .brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-serif); font-size:19px; letter-spacing:0.02em; }
+@media (max-width:768px){ .brand{ font-size:16px; } }
 .brand .mark{ width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 
 .nav-links{ display:flex; align-items:center; gap:30px; }
@@ -131,6 +135,7 @@ header{
 @media (max-width:900px){
   .nav-links{ display:none; }
   .header-actions .pill-btn{ display:none; }
+  .header-actions .lang-switch{ display:none; }
   .hamburger{ display:flex; }
 }
 
@@ -249,12 +254,12 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
 <div class="nav-scrim" id="navScrim"></div>
 <div class="mobile-nav" id="mobileNav">
   <button class="close-btn" id="closeNav" aria-label="Chiudi menu">×</button>
+  <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
   <a href="index.html#chi-siamo" data-i18n="nav.about">Chi siamo</a>
   <a href="immobili.html" data-i18n="nav.properties">Immobili</a>
   <a href="index.html#servizi" data-i18n="nav.services">Servizi</a>
   <a href="index.html#team" data-i18n="nav.team">Il team</a>
   <a href="index.html#contatti" data-i18n="nav.contact">Contatti</a>
-  <div class="lang-switch"><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
 </div>
 
 <header id="siteHeader">
