@@ -122,8 +122,13 @@ header{
 .brand .mark{ width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 
 .nav-links{ display:flex; align-items:center; gap:30px; }
-.nav-links a{ font-size:14px; font-weight:500; }
-.nav-links a:hover{ color: var(--accent); }
+.nav-links a{ font-size:14px; font-weight:500; position:relative; }
+.nav-links a::after{
+  content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+  background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+}
+.nav-links a:hover::after{ transform:scaleX(1); }
+header.on-dark .nav-links a:hover:not(.is-current){ color: var(--color-paper); }
 .nav-links a.is-current{ color: var(--accent); }
 
 .header-actions{ display:flex; align-items:center; gap:18px; }

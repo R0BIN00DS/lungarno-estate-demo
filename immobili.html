@@ -136,8 +136,13 @@ header.on-dark.scrolled{ background: rgba(23,19,16,0.85); border-color: var(--co
 @media (max-width:768px){ .brand{ font-size:16px; } }
 
 .nav-links{ display:flex; align-items:center; gap:30px; }
-.nav-links a{ font-size:14px; font-weight:500; }
-.nav-links a:hover{ color: var(--accent); }
+.nav-links a{ font-size:14px; font-weight:500; position:relative; }
+.nav-links a::after{
+  content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+  background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+}
+.nav-links a:hover::after{ transform:scaleX(1); }
+header.on-dark .nav-links a:hover:not(.is-current){ color: var(--color-paper); }
 .nav-links a.is-current{ color: var(--accent); }
 
 .header-actions{ display:flex; align-items:center; gap:18px; }
