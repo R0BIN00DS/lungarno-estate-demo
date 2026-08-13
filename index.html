@@ -246,6 +246,13 @@ header.on-dark .lang-switch button.is-active{ background: var(--color-cream); co
   color:var(--color-ink);
 }
 .search-card .pill-btn{ padding:13px 28px; }
+@media (min-width:769px){
+  .hero-block{ min-height:100vh; }
+  .hero-eyebrow{ margin-bottom:8px; }
+  .hero-title{ margin:36px auto 40px; }
+  .hero-sub{ margin-bottom:52px; }
+  .hero-inner{ padding-bottom:48px; }
+}
 @media (max-width:768px){
   .hero{ min-height:52vh; padding-top:40px; }
   .hero-inner{ padding-bottom:20px; }
@@ -487,6 +494,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
     </div>
     <div class="zoom-photo-content">
 
+      <div class="hero-block">
       <!-- ===================== HERO ===================== -->
       <section class="hero" id="top" data-header-theme="dark">
         <div class="wrap hero-inner">
@@ -513,6 +521,7 @@ footer{ background:var(--color-ink); color:var(--color-muted-on-dark); padding:6
           </div>
           <button type="submit" class="pill-btn accent" data-i18n="search.submit">Cerca immobili</button>
         </form>
+      </div>
       </div>
 
       <!-- ===================== ABOUT ===================== -->
