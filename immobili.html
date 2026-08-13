@@ -121,6 +121,13 @@ header.on-dark.scrolled{ background: rgba(23,19,16,0.85); border-color: var(--co
   header.on-dark, header.on-dark.scrolled{ background: var(--color-ink); backdrop-filter:none; }
 }
 
+/* ---- desktop: this page's banner photo isn't dark enough everywhere for cream nav text to
+   stay readable before the user scrolls (unlike index.html's darker hero). Give on-dark the
+   same solid backdrop it already gets once .scrolled is added, so it's opaque from the start. ---- */
+@media (min-width:769px){
+  header.on-dark{ background: rgba(23,19,16,0.85); backdrop-filter: blur(8px); border-color: var(--color-border-dark); }
+}
+
 .header-row{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
 .brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-serif); font-size:19px; letter-spacing:0.02em; }
 .brand .mark{ width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
