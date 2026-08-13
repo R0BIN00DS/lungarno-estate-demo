@@ -1,0 +1,87 @@
+# Piano di revisione 3 — Lungarno Estate
+
+Modifiche derivate dalla **terza review** dell'esperto esterno.
+Eseguire **una fase alla volta**, in ordine. Al termine di ogni fase: fermarsi, elencare i file toccati, attendere conferma.
+
+## Regole generali
+
+- Le modifiche valgono su **desktop e mobile**, salvo dove diversamente indicato.
+- Nessuna migrazione di framework: il sito resta HTML/CSS/JS statico.
+- Non rifattorizzare la struttura, non rinominare file, non riorganizzare cartelle.
+- Colori e spaziature passano dalle CSS custom properties già presenti; se non esistono, crearle in `:root`.
+- Ogni modifica testuale va applicata **sia in IT sia in EN**.
+- Nessuna dipendenza esterna. Icone come SVG inline.
+- **Verificare il risultato nel browser e misurare prima di proporre i valori**, non procedere per tentativi.
+- Verifiche di riferimento: **1440x900** e **390x844**.
+
+---
+
+## FASE 1 — Nuovo accent color
+
+Il bordeaux `#6B2233` appartiene alla stessa famiglia calda e scura dell'immagine hero (tramonto arancio-bruno), quindi il bottone CTA non stacca dallo sfondo. È lo stesso problema già segnalato in precedenza sull'oro: il colore è cambiato, la famiglia cromatica no.
+
+**Nuovo accent: crema pieno con testo scuro** — inversione rispetto all'attuale. Contrasto massimo su qualunque foto, chiara o scura, senza introdurre colori nuovi nella palette.
+
+### 1.1 Definizione
+
+- Impostare come sfondo dell'accent il crema già in uso nel sito (la variabile `--color-cream` o equivalente).
+- Testo e icone dentro i bottoni accent: il colore scuro di base del sito (l'ink/near-black già presente).
+- Se serve, creare in `:root` una coppia dedicata (es. `--accent-bg` e `--accent-fg`) invece di hardcodare i valori.
+
+### 1.2 Applicazione
+
+Il nuovo accent va applicato a tutti gli elementi che oggi usano il bordeaux:
+
+- Bottone "Richiedi consulenza" nella navbar
+- Bottone di submit del form hero ("Cerca immobili")
+- Bottone di submit del form contatti ("Invia richiesta")
+- Bottone "Richiedi informazioni" nella scheda immobile
+- Stati `:hover` e `:focus-visible` di questi elementi
+- Avatar con iniziali nelle recensioni
+
+**Non** applicarlo a: bottoni secondari (`.pill-btn--ghost` o equivalente), che restano neutri come stabilito in precedenza.
+
+### 1.3 Verifiche
+
+- Contrasto WCAG AA (≥ 4.5:1) tra testo e sfondo su ogni bottone.
+- Il bottone deve staccare visibilmente sia sopra la hero (foto calda e luminosa) sia sopra le sezioni a fondo scuro sia su fondo beige.
+- Rimuovere il vecchio bordeaux dalle regole in cui non serve più: cancellare, non sovrascrivere.
+- Verificare che nessun elemento resti bordeaux per dimenticanza.
+
+---
+
+## FASE 2 — Frecce dei select nel form hero
+
+Le chevron dei tre select sono sproporzionate rispetto al testo dei campi.
+
+- Ridurre la dimensione delle frecce fino a renderle proporzionate al testo dell'etichetta selezionata.
+- Mantenere lo stesso spessore di tratto degli altri elementi grafici del sito.
+- Verificare l'allineamento verticale rispetto al testo del campo.
+- Controllare su mobile che la freccia non si sovrapponga al testo in nessun campo, in IT e in EN.
+
+---
+
+## FASE 3 — Hover dei link nella navbar
+
+L'animazione di hover attuale rende i link poco leggibili.
+
+- Sostituirla con un effetto che **aggiunga** contrasto invece di ridurlo. Opzioni:
+  - sottolineatura che compare sotto la voce, in crema
+  - testo che passa a bianco pieno
+  - combinazione delle due
+- Evitare cambi di opacità, sfocature o spostamenti che riducano la leggibilità durante la transizione.
+- La voce attiva deve restare distinguibile dalle altre anche in hover.
+- Verificare su tutte le pagine, incluse quelle con hero chiara dove la navbar è già stata resa opaca.
+
+---
+
+## Checklist finale
+
+- [ ] Nuovo accent crema applicato a tutti i bottoni primari, testo scuro leggibile
+- [ ] Nessun residuo del vecchio bordeaux
+- [ ] Bottoni secondari rimasti neutri
+- [ ] Contrasto AA verificato su ogni bottone, su tutti i fondi
+- [ ] Frecce dei select proporzionate, nessuna sovrapposizione al testo
+- [ ] Hover navbar leggibile in ogni stato e su ogni pagina
+- [ ] Test su 1440x900 e 390x844, IT ed EN
+- [ ] Nessuna regressione sulle fasi precedenti

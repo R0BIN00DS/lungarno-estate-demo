@@ -32,6 +32,8 @@
   --color-gold-soft: #C9A46A;
   --accent: #6B2233;
   --accent-hover: #551A28;
+  --accent-bg: var(--color-cream);
+  --accent-fg: var(--color-ink);
   --color-muted: #8A8375;
   --color-muted-on-dark: #B7AE9C;
   --color-border: #E1D5BC;
@@ -102,8 +104,8 @@ section{ scroll-margin-top:96px; }
 .pill-btn:hover{ background:#000; transform: translateY(-2px); }
 .pill-btn.ghost-pill{ background:transparent; color:var(--color-ink); border:1px solid var(--color-ink); }
 .pill-btn.ghost-pill:hover{ background: var(--color-ink); color:var(--color-cream); }
-.pill-btn.accent{ background: var(--accent); color:#FFFFFF; }
-.pill-btn.accent:hover{ background: var(--accent-hover); }
+.pill-btn.accent{ background: var(--accent-bg); color: var(--accent-fg); border:1px solid var(--color-ink); }
+.pill-btn.accent:hover{ background: var(--color-cream-deep); }
 
 /* ---------- Header ---------- */
 header{

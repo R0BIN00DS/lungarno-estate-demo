@@ -54,6 +54,8 @@
   --accent: #6B2233;
   --accent-hover: #551A28;
   --accent-soft: rgba(107,34,51,0.1);
+  --accent-bg: var(--color-cream);
+  --accent-fg: var(--color-ink);
   --color-muted: #8A8375;
   --color-muted-on-dark: #B7AE9C;
   --color-border: #E1D5BC;
@@ -127,8 +129,8 @@ section{ scroll-margin-top:96px; }
 .pill-btn:hover{ background:#000; transform: translateY(-2px); }
 .pill-btn.ghost-pill{ background:transparent; color:var(--color-ink); border:1px solid var(--color-ink); }
 .pill-btn.ghost-pill:hover{ background: var(--color-ink); color:var(--color-cream); }
-.pill-btn.accent{ background: var(--accent); color:#FFFFFF; }
-.pill-btn.accent:hover{ background: var(--accent-hover); }
+.pill-btn.accent{ background: var(--accent-bg); color: var(--accent-fg); border:1px solid var(--color-ink); }
+.pill-btn.accent:hover{ background: var(--color-cream-deep); }
 
 /* ---------- Header ---------- */
 header{
@@ -406,7 +408,7 @@ header.on-dark .lang-switch button.is-active{ background: var(--color-cream); co
 .review-card .who-text span{ font-weight:400; color:var(--color-muted); }
 .review-card .avatar{
   width:48px; height:48px; border-radius:50%; flex-shrink:0;
-  background:var(--accent); color:#FFFFFF;
+  background:var(--accent-bg); color:var(--accent-fg); border:1px solid var(--color-ink);
   display:flex; align-items:center; justify-content:center;
   font-family:var(--font-sans); font-weight:600; font-size:15px;
 }
